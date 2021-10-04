@@ -1,4 +1,5 @@
-#geneticAlgorithmAttempt
+# geneticAlgorithmAttempt
 
-##Description
+## Description
+
 First attempt at a genetic algorithm.
