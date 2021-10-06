@@ -1,13 +1,16 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"fmt"
+	"log"
 	"math/rand"
+	"os"
 	"time"
 )
 
-var POP_SIZE int = 1000
+var POP_SIZE int =
 var MUTATION_RATE = 0.005 // .5% chance of mutating
 
 type Organism struct {
@@ -125,10 +128,17 @@ func getBest(population []Organism) (bestOrganism Organism) {
 
 func main() {
 	fmt.Println("Highly crackhead genetic algorithm made by bert")
+	var target []byte
+	fmt.Printf("Enter a target string: ")
+	reader := bufio.NewReader(os.Stdin)
+	target, err := reader.ReadBytes('\n')
+	if err != nil {
+		log.Fatal(err)
+	}
+	target = target[:len(target)-2]
+
 	start := time.Now()
 	rand.Seed(start.UTC().UnixNano())
-
-	target := []byte("To be or not to be")
 	population := createPopulation(target)
 
 	fCompleted := false
